@@ -1,4 +1,4 @@
-> Last updated: Oct 31 2020
+> Last updated: Nov 1 2020
 
 ## Setting up Docker jupyter
 
@@ -14,8 +14,9 @@ The way I'm using jupyter is using the ~/notebook dir and everything jupyter rel
 docker pull jupyter/datascience-notebook
 
 (lastest version is using python 3.8)
+(note /home/pc )
 
-docker run -p 8888:8888 -v /home/mike/notebook:/home/jovyan/work --name notebook jupyter/datascience-notebook 
+docker run -p 8888:8888 -v /home/pc/notebook:/home/jovyan/work --name notebook jupyter/datascience-notebook 
 
 (Open the provided link)
 http://127.0.0.1:8888/?token=d4gbfd446773gbfd4467735et77664
@@ -28,7 +29,7 @@ docker image list -a
 (test to see what the python version of this notebook is)
 
 (install pytorch inside notebook container)
-python -m pip install pytorch
+python -m pip install torch==1.7.0+cpu torchvision==0.8.1+cpu torchaudio==0.7.0 -f https://download.pytorch.org/whl/torch_stable.html
 
 docker stop notebook
 docker start notebook
